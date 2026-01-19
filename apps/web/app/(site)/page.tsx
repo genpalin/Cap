@@ -15,5 +15,5 @@ export default async function Home() {
 		redirect("/dashboard/caps");
 	}
 
-	redirect("/login");
+	 return <HomePage serverHomepageCopyVariant={homepageCopyVariant} />;
 }

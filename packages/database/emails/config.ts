@@ -21,11 +21,15 @@ export const sendEmail = async ({
 	scheduledAt?: string;
 }) => {
 	const r = resend();
-	if (!r) {
+	/* if (!r) {
 		return Promise.resolve();
 	}
 
-	if (marketing && !buildEnv.NEXT_PUBLIC_IS_CAP) return;
+	if (marketing && !buildEnv.NEXT_PUBLIC_IS_CAP) return; */
+	
+	if (marketing) from = "Richie from Cap <richie@send.cap.so>";  
+	else from = `auth@${serverEnv().RESEND_FROM_DOMAIN}`;  
+	
 	let from;
 
 	if (marketing) from = "Richie from Cap <richie@send.cap.so>";
